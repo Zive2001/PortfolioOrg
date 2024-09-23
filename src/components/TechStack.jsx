@@ -4,7 +4,7 @@ import bg2 from "../assets/bg2.png"; // Import the background image
 
 // Example tech stack data with modern icons
 const techStack = [
-  { name: "MongoDB", icon: <SiMongodb /> },
+  { name: "MongoDB", icon: <SiMongodb  className=" hover:text-green-400 transition-colors"/> },
   { name: "Express.js", icon: <SiExpress /> },
   { name: "React.js", icon: <SiReact /> },
   { name: "Node.js", icon: <SiNodedotjs /> },
