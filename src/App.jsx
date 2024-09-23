@@ -21,12 +21,14 @@ function App() {
   // Scroll to section with offset
   const scrollToSection = (sectionId) => {
     const sectionElement = document.getElementById(sectionId);
-    const offsetPosition = sectionElement.offsetTop - 50; // Adjust the offset as needed
-    window.scrollTo({
-      top: offsetPosition,
-      behavior: "smooth",
-    });
-    setActiveSection(sectionId);
+    if (sectionElement) {
+      const offsetPosition = sectionElement.offsetTop - 50; // Adjust the offset as needed
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      });
+      setActiveSection(sectionId);
+    }
   };
 
   // UseEffect to track scroll position and update active section
@@ -34,20 +36,23 @@ function App() {
     const handleScroll = () => {
       const current = sections.find((section) => {
         const sectionElement = document.getElementById(section.id);
+        if (!sectionElement) return false;
         const { top, bottom } = sectionElement.getBoundingClientRect();
         return top < window.innerHeight / 2 && bottom >= window.innerHeight / 2;
       });
 
-      if (current) {
+      if (current && current.id !== activeSection) {
         setActiveSection(current.id);
       }
     };
 
     window.addEventListener("scroll", handleScroll);
+    // Initial check in case the user starts at a scrolled position
+    handleScroll();
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  }, [activeSection, sections]);
 
   return (
     <div className="relative bg-gray-100 text-gray-900">
@@ -86,15 +91,19 @@ function App() {
 
       {/* Main content sections */}
       <div id="landing" className="min-h-screen">
-        <Landing />
+        <Landing activeSection={activeSection} />
       </div>
-      <div>
-      <img
-          src={bg4}
-          alt="Tech Stack Background"
-          className="absolute top-[600px] left-[-20px] w-1/4 lg:w-1/4 opacity-80 z-50"
-        />
-         </div>
+      
+      {/* Background Image for Tech Stack */}
+      <motion.img
+        src={bg4}
+        alt="Tech Stack Background"
+        className="absolute top-[600px] left-[-20px] w-1/4 lg:w-1/4 z-50"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: activeSection === "techStack" ? 0.8 : 0 }}
+        transition={{ duration: 1.5 }}
+      />
+
       <div id="techStack" className="min-h-screen bg-gray-100">
         <TechStack />
       </div>

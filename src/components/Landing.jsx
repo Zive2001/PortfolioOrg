@@ -5,7 +5,7 @@ import bg3 from "../assets/bg3.svg";
 import bg2 from "../assets/bg2.png"; 
 import bg from "../assets/bg.png"; 
 
-export default function Landing() {
+export default function Landing({ activeSection }) {
   return (
     <section className="h-screen flex items-center bg-white text-center relative overflow-hidden">
       {/* Social Media Icons */}
@@ -25,7 +25,7 @@ export default function Landing() {
         <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer">
           <FaTwitter className="text-gray-600 hover:text-blue-400 transition duration-300" size={28} />
         </a>
-        <a href="https://www.Linkedin.com" target="_blank" rel="noopener noreferrer">
+        <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">
           <FaLinkedin className="text-gray-600 hover:text-blue-800 transition duration-300" size={28} />
         </a>
       </div>
@@ -57,9 +57,9 @@ export default function Landing() {
       <motion.img
         src={bg3}
         alt="Doodle Background"
-        className="absolute bottom-0 right-0 w-[30%] h-auto object-cover z-0 opacity-20"
+        className="absolute bottom-0 right-0 w-[30%] h-auto object-cover z-0"
         initial={{ opacity: 0 }}
-        animate={{ opacity: 0.7 }}
+        animate={{ opacity: activeSection === "landing" ? 0.7 : 0 }}
         transition={{ duration: 1.5 }}
       />
     </section>
