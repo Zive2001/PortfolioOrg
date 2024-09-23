@@ -1,7 +1,9 @@
 import { motion } from "framer-motion";
 import { FaInstagram, FaFacebook, FaGithub, FaFigma, FaTwitter, FaLinkedin } from "react-icons/fa";
 import pp2 from "../assets/pp2.jpeg";
-import bg from "../assets/bg.png"; // Import the new image
+import bg3 from "../assets/bg3.svg"; 
+import bg2 from "../assets/bg2.png"; 
+import bg from "../assets/bg.png"; 
 
 export default function Landing() {
   return (
@@ -53,11 +55,11 @@ export default function Landing() {
 
       {/* Doodle-style image in the right bottom corner */}
       <motion.img
-        src={bg}
+        src={bg3}
         alt="Doodle Background"
-        className="absolute bottom-0 right-0 w-[60%] h-auto object-cover z-0 opacity-20"
+        className="absolute bottom-0 right-0 w-[30%] h-auto object-cover z-0 opacity-20"
         initial={{ opacity: 0 }}
-        animate={{ opacity: 0.5 }}
+        animate={{ opacity: 0.7 }}
         transition={{ duration: 1.5 }}
       />
     </section>

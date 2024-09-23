@@ -5,6 +5,7 @@ import Landing from "./components/Landing";
 import TechStack from "./components/TechStack";
 import Projects from "./components/Projects";
 import Contact from "./components/Contact";
+import bg4 from "./assets/bg4.svg";
 
 function App() {
   const [activeSection, setActiveSection] = useState("landing");
@@ -87,6 +88,13 @@ function App() {
       <div id="landing" className="min-h-screen">
         <Landing />
       </div>
+      <div>
+      <img
+          src={bg4}
+          alt="Tech Stack Background"
+          className="absolute top-[600px] left-[-20px] w-1/4 lg:w-1/4 opacity-80 z-50"
+        />
+         </div>
       <div id="techStack" className="min-h-screen bg-gray-100">
         <TechStack />
       </div>
