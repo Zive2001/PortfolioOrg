@@ -48,7 +48,7 @@ export default function Landing({ activeSection }) {
           transition={{ duration: 1.5 }}
           className="text-left"
         >
-          <h1 className="text-3xl font-bold mb-4">Doodler by nature, designer by trade</h1>
+          <h1 className="text-3xl font-bold mb-4">Portfolio Title</h1>
           <p className="text-xl">Hi, I'm Supun Seneviratne, Welcome to my portfolio!</p>
         </motion.div>
       </div>
